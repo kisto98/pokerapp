@@ -4,9 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.util.Log
 
-/**
- * Created by erol on 05/02/19.
- */
+
 class ViewModelGame: ViewModel() {
 
     companion object {

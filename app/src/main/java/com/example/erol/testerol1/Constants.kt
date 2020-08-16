@@ -1,8 +1,5 @@
 package com.example.erol.testerol1
 
-/**
- * Created by erol on 07/02/19.
- */
 
 class Constants{
 

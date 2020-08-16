@@ -2,9 +2,7 @@ package com.example.erol.testerol1
 
 import android.util.Log
 
-/**
- * Created by erol on 25/01/19.
- */
+
 
 class Game {
 

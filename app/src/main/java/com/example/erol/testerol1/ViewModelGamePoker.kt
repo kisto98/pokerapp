@@ -5,9 +5,7 @@ import android.arch.lifecycle.ViewModel
 import android.util.Log
 
 
-/**
- * Created by erol on 05/02/19.
- */
+
 class ViewModelGamePoker: ViewModel() {
 
     companion object {

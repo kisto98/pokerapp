@@ -32,8 +32,6 @@ class PokerMain : AppCompatActivity() {
 
     val vmGame = ViewModelGamePoker()
     var counter = 0
-    var selectedCards = arrayListOf<Card>()
-    val clickedCards = arrayListOf<Int>()
     val map = HashMap<Int, Card?>()
 
 
@@ -79,23 +77,13 @@ class PokerMain : AppCompatActivity() {
                     greska()
                 } else {
                     brojac++
-//                    vmGame.playNewCard(false)
-//                    vmGame.playNewCard(false)
-//                    vmGame.playNewCard(false)
-//                    vmGame.playNewCard(false)
-//                    vmGame.playNewCard(false)
-//                    vmGame.deal(Map)
-
-
                     vmGame.deal(map)
 
                     drawCards()
 
-
                     card1.setOnClickListener {
                         counter += 1
                         onCardClicked(it.id)
-
                     }
 
                     card2.setOnClickListener {
@@ -116,8 +104,7 @@ class PokerMain : AppCompatActivity() {
                     card5.setOnClickListener {
                         onCardClicked(it.id)
                         counter += 1
-                        //                clickedCards.add(R.id.card1)
-                        //                Log.i(TAG, "Changed Cards Array Size: " + clickedCards.size)
+
                     }
                     counter1()
                     trenutno.text = brojac.toString()
@@ -204,8 +191,6 @@ class PokerMain : AppCompatActivity() {
 
 
     fun pair() {
-
-
         if (map[R.id.card1]?.number == map[R.id.card2]?.number || map[R.id.card1]?.number == map[R.id.card3]?.number
                 || map[R.id.card1]?.number == map[R.id.card4]?.number || map[R.id.card1]?.number == map[R.id.card5]?.number
                 || map[R.id.card2]?.number == map[R.id.card3]?.number || map[R.id.card2]?.number == map[R.id.card4]?.number

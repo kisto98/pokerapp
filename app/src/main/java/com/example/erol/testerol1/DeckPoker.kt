@@ -4,9 +4,6 @@ import android.util.Log
 import java.util.*
 
 
-/**
- * Created by erol on 25/01/19.
- */
 
 class DeckPoker {
 
