@@ -46,9 +46,10 @@
 
 
         </LinearLayout>>
+
         <FrameLayout
             android:id="@+id/layImages"
-            android:layout_width="match_parent"
+            android:layout_width="325dp"
             android:layout_height="348dp"
             android:layout_gravity="center"
             android:layout_marginLeft="70dp"
@@ -70,7 +71,7 @@
 
             <Button
                 android:id="@+id/buttonLow"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
@@ -79,7 +80,7 @@
 
             <Button
                 android:id="@+id/buttonHi"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="50dp"
@@ -87,22 +88,22 @@
                 android:text="HIGH" />
 
             <Button
-                android:id="@+id/poker"
-                android:layout_width="wrap_content"
+                android:id="@+id/kasiraj"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="50dp"
-                android:background="#FFFF"
-                android:text="POKER" />
+                android:background="#35FB03"
+                android:text="Kasa" />
 
             <Button
-                android:id="@+id/p"
-                android:layout_width="wrap_content"
+                android:id="@+id/meni1"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="50dp"
                 android:background="#FFFF"
-                android:text="Kasiraj" />
+                android:text="meni" />
 
         </LinearLayout>
 
@@ -120,7 +121,7 @@
                 android:layout_margin="10dp"
                 android:layout_marginLeft="50dp"
                 android:background="#FFFF"
-                android:text="LoerBet" />
+                android:text="LowerBet" />
 
             <Button
                 android:id="@+id/highbet"

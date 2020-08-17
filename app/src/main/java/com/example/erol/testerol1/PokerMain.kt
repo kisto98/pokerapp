@@ -1,5 +1,6 @@
 package com.example.erol.testerol1
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.media.Image
@@ -21,7 +22,7 @@ import android.support.v7.app.AlertDialog
 import android.widget.Button
 import java.lang.invoke.ConstantCallSite
 import kotlin.math.min
-
+import android.support.v7.widget.AppCompatEditText
 
 class PokerMain : AppCompatActivity() {
 
@@ -40,12 +41,13 @@ class PokerMain : AppCompatActivity() {
     var bet = 100
     val naziv = "Bet: "
     val parenaziv = "Pare: "
-
+    var zaradiosi= "Dob si:"
+    var dobitnost= ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.poker_main)
-
+        zarada.text=zaradiosi + dobitnost
         changeActivity()
         dealCard()
         vmGame.startGame()
@@ -107,7 +109,7 @@ class PokerMain : AppCompatActivity() {
 
                     }
                     counter1()
-                    trenutno.text = brojac.toString()
+                   /* trenutno.text = brojac.toString()*/
                     pokreniponovo()
 
 
@@ -136,11 +138,12 @@ class PokerMain : AppCompatActivity() {
     }
 
     fun changeActivity() {
-        slotGame.setOnClickListener() {
-            val intent = Intent(this, MainActivity::class.java)
+        meni2.setOnClickListener() {
+            val intent = Intent(this, Mmenu::class.java)
             startActivity(intent)
+
         }
-    }
+        }
 
     fun getDrawableForCard(card: Card): Drawable? {
         Log.i(TAG, "drawable ${card.number}_${card.pledge}")
@@ -159,7 +162,7 @@ class PokerMain : AppCompatActivity() {
         var tekstic = "Imas "
         var tekstic1 = " para"
         kasa.text = tekstic + pare1.toString() + tekstic1
-        trenutno.text = brojac.toString()
+       // trenutno.text = brojac.toString()
 
         if (brojac == 1) {
 
@@ -167,7 +170,7 @@ class PokerMain : AppCompatActivity() {
             var tekstic = "Imas "
             var tekstic1 = " para"
             kasa.text = tekstic + pare1.toString() + tekstic1
-            trenutno.text = brojac.toString()
+            //trenutno.text = brojac.toString()
         }
 
         if (brojac == 2) {
@@ -182,7 +185,7 @@ class PokerMain : AppCompatActivity() {
         }
 
 
-        trenutno.text = brojac.toString()
+        //trenutno.text = brojac.toString()
 
         if ((pare1 == 0) && (brojac == 0)) {
             alertpokreniponovo()
@@ -227,6 +230,7 @@ class PokerMain : AppCompatActivity() {
             bet = bet * 1
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 1
             dobitak()
         }
@@ -235,6 +239,7 @@ class PokerMain : AppCompatActivity() {
             bet = bet * 3
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 3
             dobitak()
         }
@@ -243,12 +248,12 @@ class PokerMain : AppCompatActivity() {
             bet = bet * 7
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 7
             dobitak()
         }
 
     }
-
 
 
     fun boja() {
@@ -260,15 +265,16 @@ class PokerMain : AppCompatActivity() {
                     maxDob = rez
 
 
-                if ((brojac == 2) && (maxDob == 5)) {
-                    bet = bet * 5
-                    pare1 = pare1 + bet
-                    kasa.text = pare1.toString()
-                      bet = bet / 5
-                    dobitak()
+                    if ((brojac == 2) && (maxDob == 5)) {
+                        bet = bet * 5
+                        pare1 = pare1 + bet
+                        kasa.text = pare1.toString()
+                        dobitnost=bet.toString()
+                        bet = bet / 5
+                        dobitak()
 
+                    }
                 }
-            }
             }
         }
         Log.i(TAG, "imam toloiko pledga na boji = $maxDob, bet je $bet")
@@ -295,6 +301,7 @@ class PokerMain : AppCompatActivity() {
             bet = bet * 2
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost = bet.toString()
             bet = bet / 2
             dobitak()
         }
@@ -302,6 +309,7 @@ class PokerMain : AppCompatActivity() {
             bet = bet * 6
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 6
             dobitak()
         }
@@ -335,42 +343,44 @@ class PokerMain : AppCompatActivity() {
                 bet = bet * 8
                 pare1 = pare1 + bet
                 kasa.text = pare1.toString()
-                   bet = bet / 8
+                dobitnost=bet.toString()
+                bet = bet / 8
                 dobitak()
             } else {
                 bet = bet * 4
                 pare1 = pare1 + bet
                 kasa.text = pare1.toString()
-                  bet = bet / 4
+                dobitnost=bet.toString()
+                bet = bet / 4
                 dobitak()           //skala u boji i skala
             }
         }
-        if ((prvi==1)&&(drugi==10)&&(treci==12)&&(cetvrti==13)&&(peti==14)&&(maxDob==5))
-        {
+        if ((prvi == 1) && (drugi == 10) && (treci == 12) && (cetvrti == 13) && (peti == 14) && (maxDob == 5)) {
             bet = bet * 9
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 9
             dobitak()
         }
-        if (((prvi==1)&&(drugi==10)&&(treci==12)&&(cetvrti==13)&&(peti==14)) ||
-                ((prvi==1)&&(drugi==7)&&(treci==8)&&(cetvrti==9)&&(peti==10)) ||
-                ((prvi==1)&&(drugi==8)&&(treci==9)&&(cetvrti==10)&&(peti==12))||
-                ((prvi==1)&&(drugi==9)&&(treci==10)&&(cetvrti==12)&&(peti==13)) )
-        {
+        if (((prvi == 1) && (drugi == 10) && (treci == 12) && (cetvrti == 13) && (peti == 14)) ||
+                ((prvi == 1) && (drugi == 7) && (treci == 8) && (cetvrti == 9) && (peti == 10)) ||
+                ((prvi == 1) && (drugi == 8) && (treci == 9) && (cetvrti == 10) && (peti == 12)) ||
+                ((prvi == 1) && (drugi == 9) && (treci == 10) && (cetvrti == 12) && (peti == 13))) {
             bet = bet * 4
             pare1 = pare1 + bet
             kasa.text = pare1.toString()
+            dobitnost=bet.toString()
             bet = bet / 4
             dobitak()
         }
 
 
-        Log.i(TAG ,"lista $alist, dobitak $maxDob, bet je $bet")
+        Log.i(TAG, "lista $alist, dobitak $maxDob, bet je $bet")
     }
 
 
-        //dopuna funkcija
+    //dopuna funkcija
     fun boja22dodadtak(card: String): Int {
         var rezultat = 0;
         map.keys.forEach { key ->
@@ -383,6 +393,7 @@ class PokerMain : AppCompatActivity() {
         }
         return rezultat
     }
+
     fun bojadodadtak(card: String): Int {
         var rezultat = 0;
         map.keys.forEach { key ->
@@ -409,6 +420,7 @@ class PokerMain : AppCompatActivity() {
         return rezultat
 
     }
+
     fun twopairdodatak(card: Int): Int {
         var rezultat = 0;
         map.keys.forEach { key ->
@@ -421,6 +433,7 @@ class PokerMain : AppCompatActivity() {
         }
         return rezultat
     }
+
     fun dobitak() {
         val builder = AlertDialog.Builder(this)
         val possitiveButtonClick = { dialog: DialogInterface, which: Int ->
@@ -492,26 +505,49 @@ class PokerMain : AppCompatActivity() {
 
     fun raise() {
         if (brojac == 0) {
-            bet = bet + 100
+            if (bet >= 1000) {
+                bet = bet + 250
+            }
+            if ((bet < 999) && (bet >= 500)) {
+                bet = bet + 100
+            }
 
-            /*     if (bet<99){bet=bet+10}if((bet<199)&&(bet>=100)){bet=bet+50}if((bet<499)&&(bet>=200)){bet=bet+100}if (bet>=500){bet=bet+200} */
-
-            betxt.text = naziv + bet.toString()
+            if ((bet < 499) && (bet >= 100)) {
+                bet = bet + 50
+            }
+            if (bet < 101) {
+                bet = bet + 10
+            }
         }
+        betxt.text = naziv + bet.toString()
+
     }
+
     fun lower() {
 
-        if (brojac==0)
-            {if (bet == 0) {
-             greska()
-        }
-            else {
-            bet = bet - 100
-        }
-        /* if ((bet<99)&&(bet>0)) {bet=bet-10}  if((bet<199)&&(bet>=100)) {bet=bet-50} if((bet<499)&&(bet>=200)){bet=bet-100}if ((bet<999)&&(bet>499)){bet=bet-150}if (bet>=1000){bet=bet-250}*/
+        if (brojac == 0) {
+            if (bet == 0) {
+                greska()
+            } else {
 
-        betxt.text = naziv + bet.toString()
+                if ((bet <= 100) && (bet > 0)) {
+                    bet = bet - 10
+                }
+
+                if ((bet <= 500) && (bet >= 101)) {
+                    bet = bet - 50
+                }
+                if ((bet <= 1000) && (bet > 499)) {
+                    bet = bet - 100
+                }
+                if (bet >= 1000) {
+                    bet = bet - 250
+                }
+
+                betxt.text = naziv + bet.toString()
+            }
+        }
     }
-}}
+}
 
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.erol.testerol1">
 
     <application
@@ -9,10 +10,9 @@
         android:roundIcon="@mipmap/poksll"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".PokerMain">
+        <activity android:name=".PokerMain" ></activity>
+        <activity android:name=".MainActivity" ></activity>
+        <activity android:name=".Mmenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

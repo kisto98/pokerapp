@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.poker_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,12 +40,12 @@ class MainActivity : AppCompatActivity() {
         startGame()
         vmGame.startGame()
         Log.i(TAG, "onCreate - finished")
-
-        poker.setOnClickListener({
+        changeactivity2()
+     /*   poker.setOnClickListener({
             val intent = Intent(this, PokerMain::class.java)
             startActivity(intent)
         })
-
+*/
     }
 
     fun getDrawableForCard(card: Card): Drawable? {
@@ -95,5 +96,13 @@ class MainActivity : AppCompatActivity() {
         builder.show()
     }
 
+
+    fun changeactivity2() {
+        meni1.setOnClickListener() {
+            val intent = Intent(this, Mmenu::class.java)
+            startActivity(intent)
+
+        }
+    }
 }
 
